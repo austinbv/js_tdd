@@ -1,8 +1,17 @@
 describe("Bag", function() {
   describe("#isEmpty", function() {
     it("is true when the bag has no contents", function() {
-      var bag = new Bag();
-      expect(bag.isEmpty()).toEqual(true);
+      var empty = new Bag();
+      var one = new Bag();
+      var many = new Bag();
+
+      one.add(1);
+      many.add(1);
+      many.add(2);
+
+      expect(empty.isEmpty()).toEqual(true);
+      expect(one.isEmpty()).toEqual(false);
+      expect(many.isEmpty()).toEqual(false);
     });
   });
 });
