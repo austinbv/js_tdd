@@ -2,5 +2,5 @@ function Bag() {
 }
 
 Bag.prototype.isEmpty = function() {
-  return;
+  return true;
 };
