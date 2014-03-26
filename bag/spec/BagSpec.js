@@ -25,4 +25,20 @@ describe("Bag", function() {
       expect(this.many.getSize()).toBeGreaterThan(1);
     });
   });
+
+  describe("#contains", function() {
+    it("returns true if the bag contains the item", function() {
+      expect(this.empty.contains(1)).toEqual(false);
+      expect(this.empty.contains(2)).toEqual(false);
+      expect(this.empty.contains(3)).toEqual(false);
+
+      expect(this.one.contains(1)).toEqual(true);
+      expect(this.one.contains(2)).toEqual(false);
+      expect(this.one.contains(3)).toEqual(false);
+
+      expect(this.many.contains(1)).toEqual(true);
+      expect(this.many.contains(2)).toEqual(true);
+      expect(this.many.contains(3)).toEqual(false);
+    });
+  });
 });

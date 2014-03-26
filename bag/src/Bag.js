@@ -13,3 +13,4 @@ Bag.prototype.add = function () {
 Bag.prototype.getSize = function() {
   return this._size;
 };
+
