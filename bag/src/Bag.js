@@ -6,7 +6,11 @@ Bag.prototype.isEmpty = function() {
   return this._items.length == 0;
 };
 
-Bag.prototype.add = function (item) {
+Bag.prototype.add = function(item) {
+  if (this.contains(item)) {
+    return;
+  }
+
   this._items.push(item);
 };
 
