@@ -48,4 +48,20 @@ describe("Bag", function() {
       expect(this.one.getSize()).toEqual(1);
     });
   });
+
+  describe("#remove", function() {
+    it("leaves the bag with all other items remaining", function() {
+      var bag = new Bag();
+      bag.add(1);
+      bag.add(2);
+      bag.add(3);
+
+      bag.remove(2);
+
+      expect(bag.getSize()).toEqual(2);
+
+      expect(bag.contains(1)).toEqual(true);
+      expect(bag.contains(3)).toEqual(true);
+    });
+  });
 });
