@@ -9,3 +9,7 @@ Bag.prototype.isEmpty = function() {
 Bag.prototype.add = function () {
   this._isEmpty = false;
 };
+
+Bag.prototype.getSize = function() {
+
+};
