@@ -1,33 +1,28 @@
 describe("Bag", function() {
+
+  beforeEach(function() {
+    this.empty = new Bag();
+    this.one = new Bag();
+    this.many = new Bag();
+
+    this.one.add(1);
+    this.many.add(1);
+    this.many.add(2);
+  });
+
   describe("#isEmpty", function() {
     it("is true when the bag has no contents", function() {
-      var empty = new Bag();
-      var one = new Bag();
-      var many = new Bag();
-
-      one.add(1);
-      many.add(1);
-      many.add(2);
-
-      expect(empty.isEmpty()).toEqual(true);
-      expect(one.isEmpty()).toEqual(false);
-      expect(many.isEmpty()).toEqual(false);
+      expect(this.empty.isEmpty()).toEqual(true);
+      expect(this.one.isEmpty()).toEqual(false);
+      expect(this.many.isEmpty()).toEqual(false);
     });
   });
 
   describe("#getSize", function() {
     it("returns a count of the items added to the bag", function() {
-      var empty = new Bag();
-      var one = new Bag();
-      var many = new Bag();
-
-      one.add(1);
-      many.add(1);
-      many.add(2);
-
-      expect(empty.getSize()).toEqual(0);
-      expect(one.getSize()).toEqual(1);
-      expect(many.getSize()).toBeGreaterThan(1);
+      expect(this.empty.getSize()).toEqual(0);
+      expect(this.one.getSize()).toEqual(1);
+      expect(this.many.getSize()).toBeGreaterThan(1);
     });
   });
 });
