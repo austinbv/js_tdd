@@ -41,4 +41,11 @@ describe("Bag", function() {
       expect(this.many.contains(3)).toEqual(false);
     });
   });
+
+  describe("#add", function() {
+    it("ignores duplicates", function() {
+      this.one.add(1);
+      expect(this.one.getSize()).toEqual(1);
+    });
+  });
 });
