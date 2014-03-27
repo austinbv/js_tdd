@@ -1,5 +1,4 @@
 describe("Bag", function() {
-
   beforeEach(function() {
     this.empty = new Bag();
     this.one = new Bag();
@@ -50,18 +49,30 @@ describe("Bag", function() {
   });
 
   describe("#remove", function() {
+    beforeEach(function() {
+      this.bag = new Bag();
+      this.bag.add(1);
+      this.bag.add(2);
+      this.bag.add(3);
+    });
+
     it("leaves the bag with all other items remaining", function() {
-      var bag = new Bag();
-      bag.add(1);
-      bag.add(2);
-      bag.add(3);
+      this.bag.remove(2);
 
-      bag.remove(2);
+      expect(this.bag.getSize()).toEqual(2);
 
-      expect(bag.getSize()).toEqual(2);
+      expect(this.bag.contains(1)).toEqual(true);
+      expect(this.bag.contains(3)).toEqual(true);
+    });
 
-      expect(bag.contains(1)).toEqual(true);
-      expect(bag.contains(3)).toEqual(true);
+    it("does nothing if the bag does not contain the item", function() {
+      this.bag.remove(10);
+
+      expect(this.bag.getSize()).toEqual(3);
+
+      expect(this.bag.contains(1)).toEqual(true);
+      expect(this.bag.contains(2)).toEqual(true);
+      expect(this.bag.contains(3)).toEqual(true);
     });
   });
 });
