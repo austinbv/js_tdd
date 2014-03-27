@@ -14,6 +14,10 @@ Bag.prototype.add = function(item) {
   this._items.push(item);
 };
 
+Bag.prototype.remove = function(item) {
+  this._items.splice(this._items.indexOf(item), 1);
+};
+
 Bag.prototype.getSize = function() {
   return this._items.length;
 };
