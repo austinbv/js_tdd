@@ -22,11 +22,17 @@ describe("Mailing list", function() {
 
       var mostRecentRequest = jasmine.Ajax.requests.mostRecent();
       expect(mostRecentRequest.url).toEqual("http://api.example.com/newsletter");
+      expect(mostRecentRequest.method).toEqual("POST");
+      expect(mostRecentRequest.data()).toEqual({"email": ["happy@example.com"]});
+
+      expect(this.$form.find("input[name=email]")).toBeDisabled();
+
       mostRecentRequest.response({
         status: 200,
         responseText: '{}'
       });
 
+      expect(this.$form.find("input[name=email]")).not.toBeDisabled();
       expect(this.$form.find("input[name=email]").val()).toEqual("");
     });
   });
